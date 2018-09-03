@@ -1,0 +1,14 @@
+C:\Проекты\FTPDownloader\FTPDownloader\obj\Debug\FTPDownloader.csprojAssemblyReference.cache
+C:\Проекты\FTPDownloader\FTPDownloader\obj\Debug\FTPDownloader.Properties.Resources.resources
+C:\Проекты\FTPDownloader\FTPDownloader\obj\Debug\FTPDownloader.csproj.GenerateResource.cache
+C:\Проекты\FTPDownloader\FTPDownloader\obj\Debug\FTPDownloader.csproj.CoreCompileInputs.cache
+C:\Проекты\FTPDownloader\FTPDownloader\bin\Debug\FTPDownloader.exe.config
+C:\Проекты\FTPDownloader\FTPDownloader\bin\Debug\FTPDownloader.exe
+C:\Проекты\FTPDownloader\FTPDownloader\bin\Debug\FTPDownloader.pdb
+C:\Проекты\FTPDownloader\FTPDownloader\bin\Debug\Newtonsoft.Json.dll
+C:\Проекты\FTPDownloader\FTPDownloader\bin\Debug\Newtonsoft.Json.xml
+C:\Проекты\FTPDownloader\FTPDownloader\obj\Debug\FTPDownloader.PresentationLayer.MainForm.resources
+C:\Проекты\FTPDownloader\FTPDownloader\obj\Debug\FTPDownloader.PresentationLayer.SettingsForm.resources
+C:\Проекты\FTPDownloader\FTPDownloader\obj\Debug\FTPDownloader.csproj.CopyComplete
+C:\Проекты\FTPDownloader\FTPDownloader\obj\Debug\FTPDownloader.exe
+C:\Проекты\FTPDownloader\FTPDownloader\obj\Debug\FTPDownloader.pdb
