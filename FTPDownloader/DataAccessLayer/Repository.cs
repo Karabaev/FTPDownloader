@@ -30,7 +30,7 @@
         /// <param name="logger"></param>
         public Repository(Logger logger)
         {
-            this.AccessDataList = new List<FTPAccessData>();
+            this.accessDataList = new List<FTPAccessData>();
             this.jsonData = string.Empty;
             this.logger = logger;
         }
@@ -44,10 +44,12 @@
         {
             if(newData == null)
             {
+                logger.WriteLog("Error adding record", LogTypes.WARNING);
                 return false;
             }
 
-            AccessDataList.Add(newData);
+            accessDataList.Add(newData);
+            logger.WriteLog("The entry was successfully added to data list");
             return true;
         }
 
@@ -76,7 +78,6 @@
                 logger.WriteLog(ex.Message, LogTypes.ERROR);
                 return null;
             }
-
         }
 
         /// <summary>
@@ -89,7 +90,7 @@
             {
                 using (FileStream stream = new FileStream(SettingsContainer.Settings.DataFileName, FileMode.OpenOrCreate))
                 {
-                    jsonData = JsonConvert.SerializeObject(AccessDataList);
+                    jsonData = JsonConvert.SerializeObject(accessDataList);
                     byte[] array = Encoding.Default.GetBytes(jsonData);
                     stream.Write(array, 0, array.Length);
                     logger.WriteLog(string.Format("All data was saved."));

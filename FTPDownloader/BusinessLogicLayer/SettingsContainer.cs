@@ -1,6 +1,5 @@
 ﻿namespace FTPDownloader.BusinessLogicLayer
 {
-    using System;
     using System.Text;
     using Newtonsoft.Json;
     using System.IO;
@@ -26,6 +25,9 @@
         /// Стандартное имя файла настроек.
         /// </summary>
         private static string settingsFileName = "Settings.json";
+        /// <summary>
+        /// Логгер.
+        /// </summary>
         private static Logger logger;
 
         /// <summary>

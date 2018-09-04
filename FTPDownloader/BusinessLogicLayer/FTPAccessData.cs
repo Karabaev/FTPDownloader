@@ -1,5 +1,6 @@
 ﻿namespace FTPDownloader.BusinessLogicLayer
 {
+    using System.Text;
     /// <summary>
     /// Данные для доступа к хранилищу FTP.
     /// </summary>
@@ -39,5 +40,12 @@
         /// Локальная папка для хранения файлов.
         /// </summary>
         public string LocalFolder { get; set; }
+
+        public override string ToString()
+        {
+            StringBuilder result = new StringBuilder();
+            result.AppendFormat("ID: {0}, Name: {1}", this.ID, this.ShopName);
+            return result.ToString();
+        }
     }
 }

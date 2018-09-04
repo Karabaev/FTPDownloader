@@ -4,7 +4,9 @@
     using System.Text;
     using System.IO;
     using System.Windows.Forms;
-    using BusinessLogicLayer;
+
+    
+
 
     /// <summary>
     /// Типы логов.
@@ -39,7 +41,7 @@
         {
             try
             {
-                using (FileStream stream = new FileStream(SettingsContainer.Settings.LogFileName, FileMode.OpenOrCreate))
+                using (FileStream stream = new FileStream(SettingsContainer.Settings.LogFileName, FileMode.Append))
                 {
                     StringBuilder fullLog = new StringBuilder();
                     fullLog.AppendFormat("{0}: {1} {2}.\n", DateTime.Now, type, log);
