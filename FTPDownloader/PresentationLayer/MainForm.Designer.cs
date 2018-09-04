@@ -42,6 +42,8 @@
             this.AddNewBtn = new System.Windows.Forms.Button();
             this.RemoveBtn = new System.Windows.Forms.Button();
             this.ApplyChangesBtn = new System.Windows.Forms.Button();
+            this.LocalFolderTxt = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.FTPDataAccessTbl)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -67,8 +69,8 @@
             // SettingsMenuItem
             // 
             this.SettingsMenuItem.Name = "SettingsMenuItem";
-            this.SettingsMenuItem.Size = new System.Drawing.Size(79, 20);
-            this.SettingsMenuItem.Text = "Настройки";
+            this.SettingsMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.SettingsMenuItem.Text = "Settings";
             this.SettingsMenuItem.Click += new System.EventHandler(this.SettingsMenuItem_Click);
             // 
             // label1
@@ -137,11 +139,11 @@
             // 
             // AddNewBtn
             // 
-            this.AddNewBtn.Location = new System.Drawing.Point(713, 206);
+            this.AddNewBtn.Location = new System.Drawing.Point(713, 237);
             this.AddNewBtn.Name = "AddNewBtn";
             this.AddNewBtn.Size = new System.Drawing.Size(75, 23);
             this.AddNewBtn.TabIndex = 12;
-            this.AddNewBtn.Text = "Добавить";
+            this.AddNewBtn.Text = "Add new";
             this.AddNewBtn.UseVisualStyleBackColor = true;
             this.AddNewBtn.Click += new System.EventHandler(this.AddNewBtn_Click);
             // 
@@ -151,7 +153,7 @@
             this.RemoveBtn.Name = "RemoveBtn";
             this.RemoveBtn.Size = new System.Drawing.Size(90, 38);
             this.RemoveBtn.TabIndex = 13;
-            this.RemoveBtn.Text = "Удалить выбранную";
+            this.RemoveBtn.Text = "Remove selected";
             this.RemoveBtn.UseVisualStyleBackColor = true;
             this.RemoveBtn.Click += new System.EventHandler(this.RemoveBtn_Click);
             // 
@@ -161,15 +163,33 @@
             this.ApplyChangesBtn.Name = "ApplyChangesBtn";
             this.ApplyChangesBtn.Size = new System.Drawing.Size(97, 40);
             this.ApplyChangesBtn.TabIndex = 14;
-            this.ApplyChangesBtn.Text = "Подтвердить изменения";
+            this.ApplyChangesBtn.Text = "Apply changes";
             this.ApplyChangesBtn.UseVisualStyleBackColor = true;
             this.ApplyChangesBtn.Click += new System.EventHandler(this.ApplyChangesBtn_Click);
+            // 
+            // LocalFolderTxt
+            // 
+            this.LocalFolderTxt.Location = new System.Drawing.Point(525, 211);
+            this.LocalFolderTxt.Name = "LocalFolderTxt";
+            this.LocalFolderTxt.Size = new System.Drawing.Size(263, 20);
+            this.LocalFolderTxt.TabIndex = 16;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(522, 194);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(62, 13);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Local folder";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.LocalFolderTxt);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.ApplyChangesBtn);
             this.Controls.Add(this.RemoveBtn);
             this.Controls.Add(this.AddNewBtn);
@@ -211,5 +231,7 @@
         private System.Windows.Forms.Button AddNewBtn;
         private System.Windows.Forms.Button RemoveBtn;
         private System.Windows.Forms.Button ApplyChangesBtn;
+        private System.Windows.Forms.TextBox LocalFolderTxt;
+        private System.Windows.Forms.Label label5;
     }
 }

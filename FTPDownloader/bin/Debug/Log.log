@@ -1,2 +1,5 @@
-04.09.2018 0:01:34: Файл 'C:\Проекты\FTPDownloader\FTPDownloader\bin\Debug\Data.json' не найден..
-
+04.09.2018 22:51:59: Процесс не может получить доступ к файлу "C:\Проекты\FTPDownloader\FTPDownloader\bin\Debug\Data.json", так как этот файл используется другим процессом..
+nt32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   в System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy)
+   в System.IO.FileStream..ctor(String path, FileMode mode)
+   в FTPDownloader.DataAccessLayer.Repository.SaveChanges() в C:\Проекты\FTPDownloader\FTPDownloader\DataAccessLayer\Repository.cs:строка 108.

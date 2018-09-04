@@ -1,45 +1,57 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using System.Windows.Forms;
+﻿namespace FTPDownloader.BusinessLogicLayer
+{ 
+    using System;
+    using System.Text;
+    using System.IO;
+    using System.Windows.Forms;
+    using BusinessLogicLayer;
 
-namespace FTPDownloader.BusinessLogicLayer
-{
+    /// <summary>
+    /// Типы логов.
+    /// </summary>
+    public enum LogTypes
+    {
+        INFO = 0,
+        ERROR,
+        WARNING
+    }
+
+    /// <summary>
+    /// Логгер.
+    /// </summary>
     public class Logger
     {
-        private string logFileName;
-
-        public Logger(string logFileName)
+        /// <summary>
+        /// Вывести сообщение на экран.
+        /// </summary>
+        /// <param name="message">Текст сообщения.</param>
+        /// <param name="caption">Текст шапки.</param>
+        public void ShowMessage(string message, string caption = "")
         {
-            this.logFileName = logFileName;   
+            MessageBox.Show(message, caption);
         }
 
-        public void ShowMessage(string message)
+        /// <summary>
+        /// Записать лог в файл.
+        /// </summary>
+        /// <param name="log">Текст лога для записи.</param>
+        public void WriteLog(string log, LogTypes type = LogTypes.INFO)
         {
-            MessageBox.Show(message);
-        }
-
-        public void WriteLog(string log)
-        {
-            using (FileStream stream = new FileStream(logFileName, FileMode.OpenOrCreate))
+            try
             {
-                StringBuilder fullLog = new StringBuilder();
-                fullLog.AppendFormat("{0}: {1}.\n", DateTime.Now, log);
-                byte[] array = Encoding.Default.GetBytes(fullLog.ToString());
-
-                try
+                using (FileStream stream = new FileStream(SettingsContainer.Settings.LogFileName, FileMode.OpenOrCreate))
                 {
+                    StringBuilder fullLog = new StringBuilder();
+                    fullLog.AppendFormat("{0}: {1} {2}.\n", DateTime.Now, type, log);
+                    byte[] array = Encoding.Default.GetBytes(fullLog.ToString());
                     stream.Write(array, 0, array.Length);
                 }
-                catch(IOException ex)
-                {
-                    throw new IOException();
-                }
-                this.ShowMessage(log);
             }
+            catch (IOException ex)
+            {
+                this.ShowMessage(string.Format("{0}: {1}", ex.StackTrace, ex.Message), "Error writing log to file.");
+            }
+            
         }
     }
 }

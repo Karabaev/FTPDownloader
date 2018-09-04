@@ -10,18 +10,44 @@
     /// </summary>
     public static class SettingsContainer
     {
+        /// <summary>
+        /// Настройки.
+        /// </summary>
         private static SettingProps settings;
+        /// <summary>
+        /// Стандартное имя файла логов.
+        /// </summary>
         private static string defaultLogFileName = "Log.log";
+        /// <summary>
+        /// Стандартное имя файла данных.
+        /// </summary>
         private static string defaultDataFileName = "Data.json";
+        /// <summary>
+        /// Стандартное имя файла настроек.
+        /// </summary>
         private static string settingsFileName = "Settings.json";
         private static Logger logger;
 
+        /// <summary>
+        /// Инициализирует объект в памяти. Инициализирует логгер, читает настройки из файла.
+        /// </summary>
         static SettingsContainer()
         {
-            logger = new Logger(Settings.LogFileName);
             Read();       
         }
 
+        /// <summary>
+        /// Инициализирует ссылку на логгер.
+        /// </summary>
+        /// <param name="_logger">Логгер.</param>
+        public static void SettingsInit(Logger _logger)
+        {
+            logger = _logger;
+        }
+
+        /// <summary>
+        /// Настройки. Get - читает настройки из файла. Set - записывает настройки в файл.
+        /// </summary>
         public static SettingProps Settings
         {
             get
@@ -42,26 +68,24 @@
         /// <summary>
         /// Записать json в файл.
         /// </summary>
-        /// <param name="json"></param>
+        /// <param name="json">Текст в json формате для записи в файл.</param>
         /// <returns></returns>
         private static bool Save(string json)
         {
-            using (FileStream stream = new FileStream(settingsFileName, FileMode.OpenOrCreate))
+            try
             {
-                byte[] array = Encoding.Default.GetBytes(json);
-
-                try
+                using (FileStream stream = new FileStream(settingsFileName, FileMode.OpenOrCreate))
                 {
+                    byte[] array = Encoding.Default.GetBytes(json);
                     stream.Write(array, 0, array.Length);
                 }
-                catch (IOException ex)
-                {
-                    logger.WriteLog(ex.Message);
-                    return false;
-                }
-
+                return true;
             }
-            return true;
+            catch (IOException ex)
+            {
+                logger.WriteLog(string.Format("{0}, {1}", ex.StackTrace, ex.Message), LogTypes.ERROR);
+                return false;
+            }
         }
 
         /// <summary>

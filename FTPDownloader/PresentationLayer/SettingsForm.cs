@@ -19,12 +19,22 @@ namespace FTPDownloader.PresentationLayer
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Загрузка формы.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SettingsForm_Load(object sender, EventArgs e)
         {
             DataFileTxt.Text = SettingsContainer.Settings.DataFileName;
             LogFileTxt.Text = SettingsContainer.Settings.LogFileName;
         }
 
+        /// <summary>
+        /// Нажатие на кнопку изменить файл данных.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ChangeDataFileBtn_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
@@ -34,6 +44,11 @@ namespace FTPDownloader.PresentationLayer
             }
         }
 
+        /// <summary>
+        /// Нажатие на кнопку изменить файл логов.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ChangeLogFileBtn_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
@@ -43,12 +58,16 @@ namespace FTPDownloader.PresentationLayer
             }
         }
 
+        /// <summary>
+        /// Нажатие на кнопку закрыть.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CloseBtn_Click(object sender, EventArgs e)
         {
             SettingsContainer.Settings.DataFileName = DataFileTxt.Text;
             SettingsContainer.Settings.LogFileName = LogFileTxt.Text;
             this.Close();
         }
-
     }
 }
